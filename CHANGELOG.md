@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [1.1.1] - 2025-12-12
+
+### Changed
+ upgrade IntelliJ platform and adjust compatibility settings
+
 ## [1.1.0] - 2025-05-15
 
 ### Fixed

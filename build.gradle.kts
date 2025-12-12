@@ -19,12 +19,12 @@ buildscript {
 plugins {
     id("java")
     id("org.jetbrains.kotlin.jvm") version "1.9.25"
-    id("org.jetbrains.intellij.platform") version "2.5.0"
+    id("org.jetbrains.intellij.platform") version "2.9.0"
     id("org.jetbrains.changelog") version "2.2.1"
 }
 
 group = "xyz.mwszksnmdys"
-version = "1.1.0"
+version = "1.1.1"
 
 repositories {
     mavenLocal()
@@ -47,12 +47,12 @@ intellijPlatform {
 
 dependencies {
     intellijPlatform{
-        create("IC", "2023.2.8")
+        local("D:\\Program\\JetBrains\\IntelliJ IDEA Ultimate")
     }
 // https://mvnrepository.com/artifact/org.jasypt/jasypt
     implementation("org.jasypt:jasypt:1.9.3")
     compileOnly("org.projectlombok:lombok:1.18.20")
-    annotationProcessor("org.projectlombok:lombok:1.18.20")
+    annotationProcessor("org.projectlombok:lombok:1.18.30")
 }
 
 changelog {
@@ -68,11 +68,11 @@ changelog {
 tasks {
     // Set the JVM compatibility versions
     withType<JavaCompile> {
-        sourceCompatibility = "17"
-        targetCompatibility = "17"
+        sourceCompatibility = "21"
+        targetCompatibility = "21"
     }
     withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-        kotlinOptions.jvmTarget = "17"
+        kotlinOptions.jvmTarget = "21"
     }
 
     signPlugin {
@@ -87,7 +87,7 @@ tasks {
 
     patchPluginXml {
         sinceBuild.set("232")
-        untilBuild.set("252.*")
+        untilBuild.set("253.*")
         changeNotes.set(provider {
             val changelogItem = changelog.getOrNull(project.version.toString()) ?: changelog.getUnreleased()
             changelog.renderItem(
