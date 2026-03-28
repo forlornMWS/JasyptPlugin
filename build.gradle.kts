@@ -24,7 +24,7 @@ plugins {
 }
 
 group = "xyz.mwszksnmdys"
-version = "1.1.1"
+version = "1.1.2"
 
 repositories {
     mavenLocal()
@@ -87,7 +87,7 @@ tasks {
 
     patchPluginXml {
         sinceBuild.set("232")
-        untilBuild.set("253.*")
+        untilBuild.set("263.*")
         changeNotes.set(provider {
             val changelogItem = changelog.getOrNull(project.version.toString()) ?: changelog.getUnreleased()
             changelog.renderItem(
